@@ -1,0 +1,17 @@
+{
+  "main": "main.js",
+  "config": {
+    "ewid": "id from controlcenter"
+  },
+  "scripts": {
+    "build": "npm run build-bundle-json && npm run build-ew-tgz",
+    "validate" : "npm run build && akamai edgeworkers validate ../ew_$npm_package_config_ewid-$npm_package_version.tgz",
+    "sandbox": "npm run update-ew-akamai-sandbox && npm run start-akamai-sandbox",
+    "build-bundle-json": "echo '{\"edgeworker-version\":\"'$npm_package_version'\",\"description\":\"'$npm_package_description'\"}' > bundle.json",
+    "build-ew-tgz": "tar czvf ../ew_$npm_package_config_ewid-$npm_package_version.tgz *",
+    "start-akamai-sandbox": "akamai sandbox start",
+    "update-ew-akamai-sandbox": "akamai sandbox update-edgeworker $npm_package_config_ewid ../ew_$npm_package_config_ewid-$npm_package_version.tgz",
+    "deploy": "akamai edgeworkers upload $npm_package_config_ewid --bundle ../ew_$npm_package_config_ewid-$npm_package_version.tgz && akamai edgeworkers activate $npm_package_config_ewid STAGING $npm_package_version",
+    "production": "akamai edgeworkers activate $npm_package_config_ewid PRODUCTION $npm_package_version"
+  }
+}

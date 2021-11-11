@@ -1,7 +1,6 @@
 # Akamai EdgeWorker Boilerplate
 
-A few files to kickstart your EdgeWorker project. Largely based on the [Development environment tutorial]
-(https://techdocs.akamai.com/edgeworkers/docs/dev-environment-tutorial) from the EdgeWorkers documentation.
+A few files to kickstart your EdgeWorker project. Largely based on the [Development environment tutorial](https://techdocs.akamai.com/edgeworkers/docs/dev-environment-tutorial) from the EdgeWorkers documentation.
 
 ## Requirements
 - Node.js/npm
